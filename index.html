@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Row Generator</title>
+    
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+    <link rel="stylesheet" href="grid-gadget.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    
+    <!--gadgetlib.js is a library of basic functions that gadgets can use.
+        Creates a global 'gadget' object that has some methods to be used. -->
+    <script src="lib/gadgetlib.min.js"></script>
+    <script src="grid-gadget.js"></script>
+</head>
+<body>
+        <form id="grid-form">
+            <p><strong>Columns:</strong> 
+            <select name="cols" id="cols">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            </p>
+            
+            <p><strong>Preview</strong></p>
+            <p>* Widths for columns will be counted as percents.</p>
+            <div id="preview">
+                <div class="column small-4 gg-col gg-col1"><input type="text" name="col1" id="col1" value="33.33%"></div>
+                <div class="column small-4 gg-col gg-col2"><input type="text" name="col2" id="col2" value="33.33%"></div>
+                <div class="column small-4 gg-col gg-col3"><input type="text" name="col3" id="col3" value="33.33%"></div>
+            </div>
+            <br>
+            
+            <input type="submit" id="gridAdd" value="Add new row">
+        </form>
+        
+        <script>
+            $('#gridAdd').on('click', function() {
+                var newRow = '<div class="row">' + $("#preview").html() + '</div>';
+                gadget.oucInsertAtCursor(newRow).then(function(result) {
+                    if(result.error) {
+                        alert(result.error);
+                    }
+                });
+            });
+        </script>
+    </div>
+    <!--
+        The following hidden div is only needed if you'll be editing your gadget in
+        OU Campus's source code editor. OU Campus automatically adds a DirectEdit link
+        to HTML files that you edit in OU Campus. This div hides the DirectEdit link.
+    -->
+    <div style="display:none">
+        <!-- ouc:ob --><!-- /ouc:ob -->
+    </div>
+</body>
+</html>

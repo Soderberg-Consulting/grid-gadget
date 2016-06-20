@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<config>
+    <entry key="types" private="true">sidebar</entry>
+    <entry key="title">Row Generator</entry>
+    <entry key="icon" private="true">http://vignette1.wikia.nocookie.net/bravefrontierglobal/images/e/e6/Unit_ills_thum_10847.png/revision/latest?cb=20160224185520</entry>
+    <entry key="description" private="true">Generates (or updates) a row with a variable number of children columns of various widths.</entry>
+    <entry key="column_max" private="true">6</entry>
+    <entry key="column_input"label="Columns" type="select" private="false">
+        {
+            "list" : [
+                { "key" : "1", "selected" : "false"},
+                { "key" : "2", "selected" : "false"},
+                { "key" : "3", "selected" : "true"},
+                { "key" : "4", "selected" : "false"},
+                { "key" : "5", "selected" : "false"},
+                { "key" : "6", "selected" : "false"}
+            ]
+        };
+    </entry>
+</config>
