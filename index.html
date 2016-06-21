@@ -17,26 +17,31 @@
     <script src="grid-gadget.js"></script>
 </head>
 <body>
+    <div id="main">
         <form id="grid-form">
+            <h1>Row Generator</h1>
             <p><strong>Columns:</strong> 
             <select name="cols" id="cols">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3" selected>3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
+                <option value="1">1 (100%)</option>
+                <option value="2">2 (50%-50%)</option>
+                <option value="66">2 (66%-33%)</option>
+                <option value="33">2 (33%-66%)</option>
+                <option value="75">2 (75%-25%)</option>
+                <option value="25">2 (25%-75%)</option>
+                <option value="3" selected>3 (33%-33%-33%)</option>
+                <option value="2525">3 (25%-25%-50%)</option>
+                <option value="2550">3 (25%-50%-25%)</option>
+                <option value="5025">3 (50%-25%-25%)</option>
+                <option value="4">4 (25%-25%-25%-25%)</option>
             </select>
             </p>
             
             <p><strong>Preview</strong></p>
-            <p>* Widths for columns will be counted as percents.</p>
             <div id="preview">
-                <div class="column small-4 gg-col gg-col1"><input type="text" name="col1" id="col1" value="33.33%"></div>
-                <div class="column small-4 gg-col gg-col2"><input type="text" name="col2" id="col2" value="33.33%"></div>
-                <div class="column small-4 gg-col gg-col3"><input type="text" name="col3" id="col3" value="33.33%"></div>
+                <div class="column medium-4 gg-col gg-col1"><!-- com.omniupdate.div label="contentcol1" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col1<!-- /com.omniupdate.div --></div>
+                <div class="column medium-4 gg-col gg-col2"><!-- com.omniupdate.div label="contentcol2" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col2<!-- /com.omniupdate.div --></div>
+                <div class="column medium-4 gg-col gg-col3"><!-- com.omniupdate.div label="contentcol3" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col3<!-- /com.omniupdate.div --></div>
             </div>
-            <br>
             
             <input type="submit" id="gridAdd" value="Add new row">
         </form>

@@ -8,6 +8,7 @@
 
 #cols {
     width: 3em;
+    width: 14em;
 }
 
 #preview {
@@ -40,52 +41,14 @@
     background-color: #ff0000;
 }
 
-.gg-col1 input {
-    background-color: #ff0000;
-    border: 1px #ff0000 solid;
-}
-
 .gg-col2 {
-    background-color: #ff9900;
-}
-
-.gg-col2 input {
-    background-color: #ff9900;
-    border: 1px #ff9900 solid;
+    background-color: #ffff00;
 }
 
 .gg-col3 {
-    background-color: #ffff00;
-}
-
-.gg-col3 input {
-    background-color: #ffff00;
-    border: 1px #ffff00 solid;
+    background-color: #00ff00;
 }
 
 .gg-col4 {
-    background-color: #00ff00;
-}
-
-.gg-col4 input {
-    background-color: #00ff00;
-    border: 1px #00ff00 solid;
-}
-
-.gg-col5 {
     background-color: #0000ff;
-}
-
-.gg-col5 input {
-    background-color: #0000ff;
-    border: 1px #0000ff solid;
-}
-
-.gg-col6 {
-    background-color: #ff00ff;
-}
-
-.gg-col6 input {
-    background-color: #ff00ff;
-    border: 1px #ff00ff solid;
 }
