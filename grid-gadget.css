@@ -23,12 +23,33 @@
     
 }
 
+#testRows {
+    display: none;
+}
+
+#listSort li {
+    list-style-type: none;
+}
+
+#listSort li > input {
+    margin-right: 5px;
+}
+
+.highlights {
+    background-color: #ffffdd;
+}
+
+#listConfirm {
+    display: none;
+}
+
 .gg-col {
     max-height: 300px;
     height: 200px;
     margin: auto;
     min-width: 3em;
     padding: 0;
+    overflow: hidden;
 }
 
 .gg-col input {

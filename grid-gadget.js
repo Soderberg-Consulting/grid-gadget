@@ -14,7 +14,7 @@ $(document).ready(function(){
         }
         else if(selection == 2) {
             /* Creates a row that has 2 medium-6 columns. */
-            column = '<div class="column small-6 gg-col gg-col1"><!-- com.omniupdate.div label="contentcol1" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col1<!-- /com.omniupdate.div --></div>';
+            column = '<div class="column medium-6 gg-col gg-col1"><!-- com.omniupdate.div label="contentcol1" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col1<!-- /com.omniupdate.div --></div>';
         }
         else if(selection == 3) {
             /* Creates a row that has 3 medium-4 columns. */
@@ -79,4 +79,13 @@ $(document).ready(function(){
         $(this).parent().css("width", width);
         $(this).val(width);
     });
+    
+    /* Gets the number of rows for the list of rows. */
+    function getRowList() {
+        var source = $("#testRows").html();//gadget.oucGetSourceContent();
+        $("#list").html(source);
+        $(".row").each(function() {
+            alert(this.id);
+        });
+    }
 });
