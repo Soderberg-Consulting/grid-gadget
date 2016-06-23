@@ -1,26 +1,42 @@
+#preview {    
+    margin: auto;
+    padding: 10px;
+}
+
+#preview, #previewNew {
+    border: 1px #000000 solid;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#display h2, #buttonControl, #rowGenerator {
+    text-align: center;
+}
+
+#main .button {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#rowGenerator .column.medium-4 {
+    display: none;
+    border: 1px #000000 solid;
+}
+
+#preview .row.row {
+    width: 100%;
+}
+
+/* For v1 testing purposes. */
 #grid-form {
     padding: 10px;
 }
 
-.small-60 {
-    width: 20%;
-}
-
 #cols {
-    width: 3em;
     width: 14em;
-}
-
-#preview {
-    border: 1px #000000 solid;
-    overflow: hidden;
-    text-align: center;
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
 }
 
 #testRows {
@@ -44,8 +60,7 @@
 }
 
 .gg-col {
-    max-height: 300px;
-    height: 200px;
+    min-height: 100px;
     margin: auto;
     min-width: 3em;
     padding: 0;
@@ -58,18 +73,18 @@
     margin: auto;
 }
     
-.gg-col1 {
+.gg-col:first-child {
     background-color: #ff0000;
 }
 
-.gg-col2 {
+.gg-col:nth-child(2) {
     background-color: #ffff00;
 }
 
-.gg-col3 {
+.gg-col:nth-child(3){
     background-color: #00ff00;
 }
 
-.gg-col4 {
+.gg-col:nth-child(4) {
     background-color: #0000ff;
 }
