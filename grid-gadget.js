@@ -3,7 +3,16 @@
 */
 $(document).ready(function(){
     /* Loads up the preview screen. */
-    var srcContent = $('#testRow').html();//gadget.
+    var srcContent = $('#testRows').html();//gadget.oucGetSourceContent();;
+    $('#preview').html(srcContent);
+    
+    /* For each column, add in a delete. */
+    $('#preview .row').each(function(i) {
+        $(this).append('<div class="delete"></div>');
+    });
+    
+    /* Sets up selectors. */
+    $('#preview').sortable().disableSelection();
     
     /* Button functions. */
     $('#rowAdd').on('click', function() {
@@ -11,14 +20,6 @@ $(document).ready(function(){
         $('#rowGenerator .column.medium-4').toggle(1000);
         $('[name=cols').val(1);
         $('#previewNew').html('<div class="column small-12 gg-col"><!-- com.omniupdate.div label="contentcol1" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ --><!-- /com.omniupdate.div --></div>');
-    });
-    
-    $('#rowEdit').on('click', function() {
-        alert("Moving rows!");
-    });
-    
-    $('#rowDelete').on('click', function() {
-        alert("Deleting rows!");
     });
     
     $('#rowConfirm').on('click', function() {
@@ -31,7 +32,10 @@ $(document).ready(function(){
         content = content.replace(/small/g, "medium");//.replace(/ gg-col/g, "");
         content = '<div class="row">' + content + '</div>';
         $('#preview').append(content);
-        $('#rowGenerator .column.medium-4').toggle(1000);
+    });
+    
+    $('.sortable').on('click', '.delete', function() {
+        $(this).parent().remove();
     });
     
     /* Changes the number of columns in the preview new row display. */
@@ -98,6 +102,7 @@ $(document).ready(function(){
                 stringHTML += column.replace(/col1/g, colI);
             }
         }
+        stringHTML += '<div class="delete"></div>';
         $('#previewNew').html(stringHTML);
     });
 });

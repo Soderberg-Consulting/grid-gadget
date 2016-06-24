@@ -1,15 +1,31 @@
-#preview {    
-    margin: auto;
-    padding: 10px;
-}
-
 #preview, #previewNew {
     border: 1px #000000 solid;
     overflow: hidden;
     text-align: center;
+}
+
+#preview {    
+    margin: auto;
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+#preview .row.row {
+    width: 100%;
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+}
+
+#preview .delete {
+    height: 50px;
+    width: 50px;
+    background-color: #45abcd;
+    border: 1px #000000 solid;
+    background-image: url('https://cdn2.iconfinder.com/data/icons/filled-icons/493/x-128.png');
+    background-size: cover;
+    content: attr(preview);
 }
 
 #display h2, #buttonControl, #rowGenerator {
@@ -24,10 +40,6 @@
 #rowGenerator .column.medium-4 {
     display: none;
     border: 1px #000000 solid;
-}
-
-#preview .row.row {
-    width: 100%;
 }
 
 /* For v1 testing purposes. */
@@ -60,11 +72,15 @@
 }
 
 .gg-col {
-    min-height: 100px;
+    height: 50px;
     margin: auto;
     min-width: 3em;
     padding: 0;
     overflow: hidden;
+}
+
+#preview .gg-col {   
+    border: 2px #000fff solid;
 }
 
 .gg-col input {

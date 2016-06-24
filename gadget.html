@@ -5,7 +5,6 @@
     
     <meta charset="utf-8">
     
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="grid-gadget.css">
@@ -23,23 +22,14 @@
         <h1>Row Gadget</h1>
         
         <div id="buttonControl" class="row">
-            <div class="column small-3">
+            <div class="column small-6 small-offset-6">
                 <button class="button" id="rowAdd">Add Rows</button>
-            </div>
-            <div class="column small-3">
-                <button class="button" id="rowEdit">Edit Rows</button>
-            </div>
-            <div class="column small-3">
-                <button class="button" id="rowDelete">Delete Rows</button>
-            </div>
-            <div class="column small-3">
                 <button class="button" id="rowConfirm">Finish</button>
             </div>
         </div>
         
         <div id="rowGenerator" class="row">
             <div class="column medium-4">
-                <h3>Insert a New Row</h3>
                 <p><strong>Columns:</strong> 
                 <select name="cols" id="cols">
                     <option value="1">1 (100%)</option>
@@ -67,8 +57,81 @@
         
         <div id="display" class="row">
             <h2>Preview</h2>
-            <div id="preview" class="column small-12">
+            <div id="preview" class="sortable column small-12">
                     
+            </div>
+        </div>
+        
+        <div id="testRows">
+            <div class="row" id="preview1">
+                <div class="column medium-3 gg-col">
+                    <p>Lorem ipsum</p>
+                </div>
+                <div class="column medium-3 gg-col">
+                    <p>Something something something</p>
+                </div>
+                <div class="column medium-6 gg-col">
+                    <p>Lots of junk information inside these columns.</p>
+                    <p>Coming soon!</p>
+                </div>
+            </div>
+            <div class="row" id="preview2">
+                <div class="column medium-3 gg-col">
+                    <p>REGURARU KURIYAN<br>
+                       ZANDASUATIBON<br>
+                       REGATORUARUBAN<br>
+                       ZANDORAIMORU</p>
+                    <p>REGURARU KURIYAN<br>
+                       ZANDASUATIBON<br>
+                       REGATORUARUBAN<br>
+                       ZANDORAIMORU</p>
+                    <p>REGURARU KURIYAN<br>
+                       ZANDASUATIBON<br>
+                       REGATORUARUBAN<br>
+                       ZANDORAIMORU</p>
+                    <p>REGURARU KURIYAN<br>
+                       ZANDASUATIBON<br>
+                       REGATORUARUBAN<br>
+                       ZANDORAIMORU</p>
+                </div>
+                <div class="column medium-6 gg-col">
+                    <p>Electrorock Ritual</p>
+                </div>
+                <div class="column medium-3 gg-col">
+                    <p>"The Path to Eternal Happiness, I Found It"</p>
+                </div>
+            </div>
+            <div class="row" id="preview3">
+                <div class="column medium-6 gg-col">
+                    <a href="https://www.youtube.com/watch?v=Y9G20wV0KHE">(Video)</a>
+                </div>
+                <div class="column medium-6 gg-col">
+                    <p>(Erased)</p>
+                    <p>:re:re</p>
+                </div>
+            </div>
+            <div class="row" id="preview4">
+                <div class="column medium-3 gg-col">
+                    <p>Project X</p>
+                    <p>Genetic twin studies</p>
+                </div>
+                <div class="column medium-3 gg-col">
+                    <p>Case Study: Nocturnal Activities</p>
+                    <p>Differences in fMRI scans during daytime and night activities.</p>
+                </div>
+                <div class="column medium-3 gg-col">
+                    <p>Survivor Game</p>
+                    <p>Live broadcast of contestants in survival situations.</p>
+                </div>
+                <div class="column medium-3 gg-col">
+                    <p>Whereabouts of Phenomenon</p>
+                    <p>Group needed to study atypical sky phenomena.</p>
+                </div>
+            </div>
+            <div class="row" id="preview5">
+                <div class="column medium-12 gg-col">
+                    <p>This is some banner space for later.</p>
+                </div>
             </div>
         </div>
     </div>
