@@ -3,12 +3,13 @@
 */
 $(document).ready(function(){
     /* Loads up the preview screen. */
-    var srcContent = $('#testRows').html();//gadget.oucGetSourceContent();;
+    var srcContent = /*$('#testRows').html();//*/gadget.oucGetSourceContent();;
     $('#preview').html(srcContent);
     
     /* For each column, add in a delete. */
-    $('#preview .row').each(function(i) {
+    $('#preview .row').each(function() {
         $(this).append('<div class="delete"></div>');
+        $(this).children().addClass('gg-col');
     });
     
     /* Sets up selectors. */
@@ -17,13 +18,18 @@ $(document).ready(function(){
     /* Button functions. */
     $('#rowAdd').on('click', function() {
         /* Displays the row generator. */
-        $('#rowGenerator .column.medium-4').toggle(1000);
+        $('#rowGenerator .column').toggle(1000);
         $('[name=cols').val(1);
-        $('#previewNew').html('<div class="column small-12 gg-col"><!-- com.omniupdate.div label="contentcol1" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ --><!-- /com.omniupdate.div --></div>');
+        $('#previewNew').html('<div class="column small-12 gg-col"><!-- com.omniupdate.div label="contentcol1" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ --><!-- /com.omniupdate.div --></div><div class="delete"></div>');
     });
     
     $('#rowConfirm').on('click', function() {
-        alert("Done editing rows!");
+        /* Takes out the gg-col class and the delete button. */
+        $('.delete').remove();
+        $('#preview .gg-col').removeClass("gg-col");
+        $('#preview .ui-sortable-handle').removeClass('ui-sortable-handle');
+        srcContent = $('#preview').html();
+        $('#testRows').html(srcContent);
     });
     
     $('#rowInsert').on('click', function() {

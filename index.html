@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Row Generator</title>
+    <title>Row Gadget</title>
     
     <meta charset="utf-8">
     
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="grid-gadget.css">
@@ -13,202 +12,58 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <!--gadgetlib.js is a library of basic functions that gadgets can use.
         Creates a global 'gadget' object that has some methods to be used. -->
-    <script src="lib/gadgetlib.min.js"></script>
+    <script src="gadgetlib.min.js"></script>
     <!-- Allows for sortable lists... -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="grid-gadget.js"></script>
 </head>
 <body>
     <div id="main">
-        <form id="grid-form">
-            <h1>Row Generator</h1>
-            <!-- Adding Rows -->
-            <h2>Add a New Row</h2>
-            <p><strong>Columns:</strong> 
-            <select name="cols" id="cols">
-                <option value="1">1 (100%)</option>
-                <option value="2">2 (50%-50%)</option>
-                <option value="66">2 (66%-33%)</option>
-                <option value="33">2 (33%-66%)</option>
-                <option value="75">2 (75%-25%)</option>
-                <option value="25">2 (25%-75%)</option>
-                <option value="3" selected>3 (33%-33%-33%)</option>
-                <option value="2525">3 (25%-25%-50%)</option>
-                <option value="2550">3 (25%-50%-25%)</option>
-                <option value="5025">3 (50%-25%-25%)</option>
-                <option value="4">4 (25%-25%-25%-25%)</option>
-            </select>
-            </p>
-            
+        <div id="buttonControl" class="row">
+            <div class="column small-6 small-offset-6">
+                <button class="button" id="rowAdd">Add Rows</button>
+                <button class="button" id="rowConfirm">Finish</button>
+            </div>
+        </div>
+        
+        <div id="rowGenerator" class="row">
+            <div class="column medium-4 medium-offset-8" id="rowGenWindow">
+                <p><strong>Columns:</strong> 
+                <select name="cols" id="cols">
+                    <option value="1">1 (100%)</option>
+                    <option value="2">2 (50%-50%)</option>
+                    <option value="66">2 (66%-33%)</option>
+                    <option value="33">2 (33%-66%)</option>
+                    <option value="75">2 (75%-25%)</option>
+                    <option value="25">2 (25%-75%)</option>
+                    <option value="3">3 (33%-33%-33%)</option>
+                    <option value="2525">3 (25%-25%-50%)</option>
+                    <option value="2550">3 (25%-50%-25%)</option>
+                    <option value="5025">3 (50%-25%-25%)</option>
+                    <option value="4">4 (25%-25%-25%-25%)</option>
+                </select>
+                </p>
+                
+                <p><strong>Sample Row</strong></p>
+                <div id="previewNew">
+                    
+                </div>
+                
+                <button class="button" id="rowInsert">Insert Row</button>
+            </div>
+        </div>
+        
+        <div id="display" class="row">
             <p><strong>Preview</strong></p>
-            <div id="preview">
-                <div class="column medium-4 gg-col gg-col1"><!-- com.omniupdate.div label="contentcol1" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col1<!-- /com.omniupdate.div --></div>
-                <div class="column medium-4 gg-col gg-col2"><!-- com.omniupdate.div label="contentcol2" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col2<!-- /com.omniupdate.div --></div>
-                <div class="column medium-4 gg-col gg-col3"><!-- com.omniupdate.div label="contentcol3" group="Everyone" button="707" --><!-- ouc:editor csspath="/z-omniupdate/css/style.css" cssmenu="/z-omniupdate/css/style.txt" width="484"/ -->col3<!-- /com.omniupdate.div --></div>
-            </div>
-            
-            <input type="submit" id="gridAdd" value="Add new row">
-        </form>
-        
-        <script>
-            $('#gridAdd').on('click', function() {
-                var newRow = '<div class="row" id="previewRow">' + $("#preview").html() + '</div>';
-                gadget.oucInsertAtCursor(newRow).then(function(result) {
-                    if(result.error) {
-                        alert(result.error);
-                    }
-                });
-            });
-        </script>
-        
-        <!-- List of Rows -->
-        <h2>List of Rows</h2>
-        
-        <div id="testRows">
-            <h3>Example Rows</h3>
-            <div class="row" id="preview1">
-                <div class="column medium-3 gg-col gg-col1">
-                    <p>Lorem ipsum</p>
-                </div>
-                <div class="column medium-3 gg-col gg-col2">
-                    <p>Something something something</p>
-                </div>
-                <div class="column medium-6 gg-col gg-col3">
-                    <p>Lots of junk information inside these columns.</p>
-                    <p>Coming soon!</p>
-                </div>
-            </div>
-            <div class="row" id="preview2">
-                <div class="column medium-3 gg-col gg-col1">
-                    <p>REGURARU KURIYAN<br>
-                       ZANDASUATIBON<br>
-                       REGATORUARUBAN<br>
-                       ZANDORAIMORU</p>
-                    <p>REGURARU KURIYAN<br>
-                       ZANDASUATIBON<br>
-                       REGATORUARUBAN<br>
-                       ZANDORAIMORU</p>
-                    <p>REGURARU KURIYAN<br>
-                       ZANDASUATIBON<br>
-                       REGATORUARUBAN<br>
-                       ZANDORAIMORU</p>
-                    <p>REGURARU KURIYAN<br>
-                       ZANDASUATIBON<br>
-                       REGATORUARUBAN<br>
-                       ZANDORAIMORU</p>
-                </div>
-                <div class="column medium-6 gg-col gg-col2">
-                    <p>Electrorock Ritual</p>
-                </div>
-                <div class="column medium-3 gg-col gg-col3">
-                    <p>"The Path to Eternal Happiness, I Found It"</p>
-                </div>
-            </div>
-            <div class="row" id="preview3">
-                <div class="column medium-6 gg-col gg-col1">
-                    <a href="https://www.youtube.com/watch?v=Y9G20wV0KHE">(Video)</a>
-                </div>
-                <div class="column medium-6 gg-col gg-col2">
-                    <p>(Erased)</p>
-                    <p>:re:re</p>
-                </div>
-            </div>
-            <div class="row" id="preview4">
-                <div class="column medium-3 gg-col gg-col1">
-                    <p>Project X</p>
-                    <p>Genetic twin studies</p>
-                </div>
-                <div class="column medium-3 gg-col gg-col2">
-                    <p>Case Study: Nocturnal Activities</p>
-                    <p>Differences in fMRI scans during daytime and night activities.</p>
-                </div>
-                <div class="column medium-3 gg-col gg-col3">
-                    <p>Survivor Game</p>
-                    <p>Live broadcast of contestants in survival situations.</p>
-                </div>
-                <div class="column medium-3 gg-col gg-col4">
-                    <p>Whereabouts of Phenomenon</p>
-                    <p>Group needed to study atypical sky phenomena.</p>
-                </div>
-            </div>
-            <div class="row" id="preview5">
-                <div class="column medium-12 gg-col gg-col1">
-                    <p>This is some banner space for later.</p>
-                </div>
+            <div id="preview" class="sortable column small-12">
+                    
             </div>
         </div>
-        
-        <!-- Retrieves the number of rows from the source content. -->
-        <h3>List of All Available Rows</h3>
-        <button class="button" type="button" id="gridGet">Click me to get the Row List</button>
-        <script>
-            $("#gridGet").on("click", function() {
-                var source = $("#testRows").html();//gadget.oucGetSourceContent();
-                $("#testRows").html(source);
-                
-                var rowList = '<p>Swap Rows</p>';
-                $("#testRows .row").each(function(i) {
-                    rowList += '<div class="row"><div class="column small-1"><input type="checkbox" name="row" value="' + this.id + '"></div><div class="column small-11">' + $(this)[0].outerHTML + '</div></div>';
-                });
-                $("#listSort").html(rowList);
-                
-                $("#listSort").sortable();
-                $("#listSort").disableSelection();
-            });
-        </script>
-        
-        <div id="list">
-            <div id="listSort">
-            
-            </div>
-            <div id="listConfirm">
-            
-            </div>
-        </div>
-        <!-- Allows for saving positions of the rows. -->
-        <button class="button" type="button" id="gridSwap">Swap rows?</button>
-        <script>
-            /* Saves the current arrangement. */
-            $('#gridSwap').on('click', function() {
-                var content = "";
-                $("#listSort .row .column.small-11").each(function() {
-                    content += $(this).html();
-                });
-                $("#listConfirm").html(content);
-                
-                // inject the saved arrangement into the source code
-                $("#testRows").html(content);
-            });
-        </script>
-        
-        <!-- Allows for deleting rows. -->
-        <button class="button" type="button" id="gridDelete">Delete these rows?</button>
-        <script>
-            /* Deletes all rows in delete rows. */
-            $('#gridDelete').on('click', function() {
-                /* Gets all the checked rows to be deleted. */
-                $("#listSort .row .column.small-1 :checked").each(function() {
-                    $(this).parent().parent().remove();
-                });
-                
-                var content = "";
-                $("#listSort .row .column.small-11").each(function() {
-                    content += $(this).html();
-                });
-                $("#listConfirm").html(content);
-                
-                // inject the saved arrangement into the source code
-                $("#testRows").html(content);
-            });
-        </script>
     </div>
-    <!--
-        The following hidden div is only needed if you'll be editing your gadget in
-        OU Campus's source code editor. OU Campus automatically adds a DirectEdit link
-        to HTML files that you edit in OU Campus. This div hides the DirectEdit link.
-    -->
+    
     <div style="display:none">
         <!-- ouc:ob --><!-- /ouc:ob -->
     </div>
 </body>
 </html>
+

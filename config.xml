@@ -2,7 +2,8 @@
 
 <config>
     <entry key="types" private="true">sidebar</entry>
-    <entry key="title">Row Generator</entry>
-    <entry key="icon" private="true">http://vignette1.wikia.nocookie.net/bravefrontierglobal/images/e/e6/Unit_ills_thum_10847.png/revision/latest?cb=20160224185520</entry>
+    <entry key="title">Row Gadget</entry>
     <entry key="description" private="true">Generates rows, updates row configuration, and deleting rows.</entry>
+    <entry key="initial_height" private="true">300</entry>
+    <entry key="sidebar_context" private="true">edit</entry>
 </config>

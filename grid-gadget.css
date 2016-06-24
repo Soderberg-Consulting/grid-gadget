@@ -28,7 +28,7 @@
     content: attr(preview);
 }
 
-#display h2, #buttonControl, #rowGenerator {
+#display p, #buttonControl, #rowGenerator {
     text-align: center;
 }
 
@@ -42,32 +42,11 @@
     border: 1px #000000 solid;
 }
 
-/* For v1 testing purposes. */
-#grid-form {
-    padding: 10px;
-}
-
 #cols {
     width: 14em;
 }
 
 #testRows {
-    display: none;
-}
-
-#listSort li {
-    list-style-type: none;
-}
-
-#listSort li > input {
-    margin-right: 5px;
-}
-
-.highlights {
-    background-color: #ffffdd;
-}
-
-#listConfirm {
     display: none;
 }
 
